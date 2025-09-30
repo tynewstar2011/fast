@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的静态主页</title>
+  <meta name="description" content="一个简洁、现代的单文件静态主页模板。可编辑文案、颜色和图片。" />
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4; /* cyan */
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071024 0%, var(--bg) 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+    }
+
+    /* header */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#02101a
+    }
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:10px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:#fff;background:var(--glass)}
+
+    /* hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;margin-bottom:28px
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6), inset 0 1px rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .hero h2{font-size:32px;margin:0 0 12px}
+    .hero p.lead{color:var(--muted);margin:0 0 20px}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#02101a;font-weight:600;text-decoration:none;
+      box-shadow: 0 6px 18px rgba(6,182,212,0.14);
+    }
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .feature{flex:1 1 140px;background:rgba(255,255,255,0.02);padding:12px;border-radius:12px}
+    .feature h4{margin:0 0 6px}
+    .muted{color:var(--muted)}
+
+    /* aside card */
+    .profile{
+      text-align:center;padding:20px
+    }
+    .avatar{width:120px;height:120px;border-radius:18px;margin:0 auto 12px;background:linear-gradient(180deg,#0ea5a3,#7c3aed)}
+    .name{font-weight:700}
+
+    /* sections */
+    section{margin-bottom:22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+    /* footer */
+    footer{display:flex;justify-content:space-between;align-items:center;color:var(--muted);padding:14px 0;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MX</div>
+        <div>
+          <h1>我的网站</h1>
+          <div class="muted">简洁的单文件静态主页模板</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">主页</a>
+        <a href="#about">关于</a>
+        <a href="#services">服务</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="card">
+          <h2>欢迎来到我的网站</h2>
+          <p class="lead">这是一个响应式、现代感的静态主页模板，适合作为个人主页、产品介绍页或小型项目的入口。</p>
+          <a class="btn" href="#contact">联系我们</a>
+
+          <div class="features">
+            <div class="feature">
+              <h4>响应式</h4>
+              <div class="muted">在桌面、平板和手机上都能很好显示。</div>
+            </div>
+            <div class="feature">
+              <h4>单文件</h4>
+              <div class="muted">HTML + 内嵌 CSS，方便复制与部署。</div>
+            </div>
+            <div class="feature">
+              <h4>易定制</h4>
+              <div class="muted">替换颜色、文字和图片即可打造独特风格。</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card profile">
+          <div class="avatar"></div>
+          <div class="name">你的名字</div>
+          <div class="muted">前端开发者 / 设计爱好者</div>
+          <div style="margin-top:12px">
+            <a class="btn" href="#about">了解更多</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card">
+        <h3>关于我</h3>
+        <p class="muted">这里写一段关于你或公司的简介。例如：我是一名前端工程师，喜欢把设计变成可交互的页面，热衷于构建易用且美观的界面。</p>
+
+        <div style="margin-top:12px" class="grid-3">
+          <div class="card">
+            <h4>经验</h4>
+            <p class="muted">多年的 Web / 移动端开发经验，熟悉现代前端工具链。</p>
+          </div>
+          <div class="card">
+            <h4>项目</h4>
+            <p class="muted">参与过多个产品从原型到上线的完整流程。</p>
+          </div>
+          <div class="card">
+            <h4>爱好</h4>
+            <p class="muted">摄影、旅行、读书。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="card">
+        <h3>服务</h3>
+        <ul class="muted">
+          <li>网站开发与定制</li>
+          <li>界面设计与原型</li>
+          <li>性能优化与可访问性改进</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card">
+        <h3>联系我</h3>
+        <p class="muted">有项目或想合作？给我发邮件或使用下面的表单：</p>
+        <form onsubmit="event.preventDefault(); alert('表单发送已模拟 — 请替换为真实后端或邮件服务。');" style="margin-top:12px;display:grid;gap:8px;">
+          <input placeholder="姓名" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" required>
+          <input type="email" placeholder="邮箱" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" required>
+          <textarea placeholder="留言" rows="4" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" required></textarea>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="btn" type="submit">发送</button>
+            <div class="muted">或发邮件到 <a href="mailto:hello@example.com" style="color:var(--accent);text-decoration:none;">hello@example.com</a></div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> 你的名字</div>
+      <div class="muted">制作于静态 HTML 模板</div>
+    </footer>
+  </div>
+
+  <script>
+    // 小交互：自动更新年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
